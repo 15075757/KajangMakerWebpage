@@ -1,0 +1,1553 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kajang Maker — Hands-On STEM & AI Education</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ── Reset ── */
+      html,
+      body,
+      div,
+      span,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      dl,
+      dt,
+      dd,
+      ul,
+      ol,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-weight: inherit;
+        font-style: inherit;
+        font-size: 100%;
+        font-family: inherit;
+        vertical-align: baseline;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      /* ── Base ── */
+      body {
+        background: #ffffff;
+        color: #111111;
+        font-size: 20px;
+        line-height: 28px;
+        font-family: "Nunito", sans-serif;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      :root {
+        --amber: #f2a900;
+        --amber-dark: #d99500;
+        --dark: #232323;
+        --dark2: #1a1a1a;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* ── ANIME NAV ── */
+      .anime-nav-logo {
+        position: fixed;
+        top: 14px;
+        left: 24px;
+        z-index: 200;
+      }
+      .anime-nav-logo a {
+        display: flex;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 14px;
+        padding: 6px 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      .anime-nav-logo img {
+        height: 52px;
+        width: auto;
+        filter: brightness(0) invert(1);
+      }
+      .anime-nav-enroll {
+        position: fixed;
+        top: 20px;
+        right: 24px;
+        z-index: 200;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 14px;
+        padding: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Floating pill */
+      .anime-pill {
+        position: fixed;
+        top: 75px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 150;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        background: rgba(10, 10, 20, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 6px 8px;
+        border-radius: 999px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0,0,0,0.2);
+        white-space: nowrap;
+        overflow: visible;
+      }
+      .anime-link {
+        position: relative;
+        padding: 10px 22px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        transition: color 0.2s;
+        z-index: 1;
+      }
+      .anime-link:hover { color: #fff; }
+      .anime-link.active { color: #fff; }
+
+      /* Active glow bg */
+      .anime-link-glow {
+        position: absolute;
+        border-radius: 999px;
+        background: rgba(82, 113, 255, 0.28);
+        box-shadow: 0 0 18px rgba(82,113,255,0.45), 0 0 40px rgba(82,113,255,0.2);
+        pointer-events: none;
+        z-index: 0;
+        transition: left 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    top 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    height 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+        animation: glowPulse 2.5s ease-in-out infinite;
+      }
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.7; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.04); }
+      }
+
+      /* Hover bg */
+      .anime-link-hover {
+        position: absolute;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.09);
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 0.18s;
+      }
+
+      /* Mascot */
+      .anime-mascot {
+        position: absolute;
+        top: -62px;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: left 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+        animation: mascotBob 2s ease-in-out infinite;
+      }
+      @keyframes mascotBob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+      .mascot-face {
+        width: 42px;
+        height: 42px;
+        background: #fff;
+        border-radius: 50%;
+        position: relative;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      }
+      .mascot-eye {
+        width: 7px; height: 7px;
+        background: #111;
+        border-radius: 50%;
+        position: absolute;
+        top: 38%;
+        animation: eyeBlink 4s ease-in-out infinite;
+      }
+      .mascot-eye.left { left: 23%; }
+      .mascot-eye.right { right: 23%; }
+      @keyframes eyeBlink {
+        0%, 88%, 100% { transform: scaleY(1); }
+        93% { transform: scaleY(0.08); }
+      }
+      .mascot-cheek {
+        width: 9px; height: 5px;
+        background: rgba(255,130,130,0.65);
+        border-radius: 50%;
+        position: absolute;
+        top: 56%;
+      }
+      .mascot-cheek.left { left: 10%; }
+      .mascot-cheek.right { right: 10%; }
+      .mascot-mouth {
+        width: 13px; height: 7px;
+        border-bottom: 2.5px solid #333;
+        border-radius: 0 0 10px 10px;
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .mascot-pointer {
+        width: 11px; height: 11px;
+        background: #fff;
+        transform: rotate(45deg);
+        margin-top: -6px;
+        border-radius: 2px;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+      }
+
+      @keyframes shine {
+        0% { transform: translateX(-100%); }
+        50% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+      }
+
+      .btn-amber {
+        display: inline-block;
+        background: var(--amber);
+        color: #111;
+        padding: 14px 34px;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition:
+          background 0.22s,
+          transform 0.18s;
+      }
+      .btn-amber:hover {
+        background: var(--amber-dark);
+        transform: translateY(-2px);
+      }
+      .btn-amber:active {
+        transform: translateY(0);
+      }
+
+      .btn-outline {
+        display: inline-block;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.85);
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        padding: 12px 32px;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition:
+          background 0.22s,
+          border-color 0.22s,
+          transform 0.18s;
+      }
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.6);
+        transform: translateY(-2px);
+      }
+
+      /* ── BACKGROUND PATHS + GLASS BUTTON ── */
+      @keyframes pathSnake {
+        from { stroke-dashoffset: 2000;  opacity: 0.08; }
+        25%  {                            opacity: 0.4;  }
+        75%  {                            opacity: 0.4;  }
+        to   { stroke-dashoffset: -2000; opacity: 0.08; }
+      }
+      .cta-paths-svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .cta-paths-svg path {
+        stroke-dasharray: 600 1400;
+      }
+
+      /* Glass wrapper — gradient border effect */
+      .btn-glass-wrap {
+        display: inline-block;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.18), rgba(0,0,0,0.15));
+        padding: 1px;
+        border-radius: 1.2rem;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+        transition: box-shadow 0.3s, transform 0.3s;
+        text-decoration: none;
+      }
+      .btn-glass-wrap:hover {
+        box-shadow: 0 18px 56px rgba(0,0,0,0.55);
+        transform: translateY(-2px);
+      }
+      .btn-glass-wrap:active { transform: translateY(0); }
+      .btn-glass-inner {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 36px;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        border-radius: calc(1.2rem - 1px);
+        background: rgba(255,255,255,0.96);
+        color: #111;
+        border: 1px solid rgba(0,0,0,0.08);
+        transition: background 0.25s, opacity 0.25s;
+        white-space: nowrap;
+      }
+      .btn-glass-wrap:hover .btn-glass-inner {
+        background: #fff;
+        opacity: 1;
+      }
+      .btn-glass-arrow {
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s;
+        opacity: 0.65;
+        font-size: 1.15em;
+      }
+      .btn-glass-wrap:hover .btn-glass-arrow {
+        transform: translateX(6px);
+        opacity: 1;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        margin-top: 0;
+        position: relative;
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background: url("photos/IMG-20170501-WA0011.jpg") center/cover no-repeat;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          100deg,
+          rgba(15, 15, 15, 0.9) 50%,
+          rgba(15, 15, 15, 0.5)
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 96px 56px;
+        width: 100%;
+      }
+      .hero-eyebrow {
+        display: inline-block;
+        background: var(--amber);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 7px 16px;
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        max-width: 680px;
+        margin-bottom: 22px;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--amber);
+      }
+      .hero .hero-sub {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.62);
+        line-height: 1.75;
+        max-width: 500px;
+        font-weight: 300;
+        margin-bottom: 40px;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ── SECTION SHARED ── */
+      .section {
+        padding: 96px 0;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 56px;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+      }
+
+      h2.sec-title {
+        font-size: clamp(1.9rem, 3.2vw, 3rem);
+        font-weight: 800;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        color: #111;
+        margin-bottom: 22px;
+      }
+      h2.sec-title em {
+        font-style: normal;
+        color: var(--amber);
+      }
+      h2.sec-title.light {
+        color: #fff;
+      }
+
+      .sec-body {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #555;
+        font-weight: 300;
+        margin-bottom: 24px;
+      }
+      .sec-body.light {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .amber-bar {
+        width: 52px;
+        height: 4px;
+        background: var(--amber);
+        margin-bottom: 22px;
+      }
+      .amber-strip {
+        height: 6px;
+        background: var(--amber);
+      }
+
+      .sec-label {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      /* ── IMAGES ── */
+      .intro-img {
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+        box-shadow: 12px 20px 60px rgba(0, 0, 0, 0.14);
+      }
+      .years-img {
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+      }
+      .path-img {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        box-shadow: 12px 20px 60px rgba(0, 0, 0, 0.12);
+      }
+      .feature-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        box-shadow: 12px 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ── STATS / 10 YEARS ── */
+      .years-section {
+        background: var(--dark2);
+      }
+      .stats-list {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+      .stat-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .stat-num {
+        font-size: 3.4rem;
+        font-weight: 900;
+        color: var(--amber);
+        line-height: 1;
+        flex-shrink: 0;
+        min-width: 96px;
+      }
+      .stat-label {
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 6px;
+      }
+      .stat-desc {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.38);
+        line-height: 1.65;
+        font-weight: 300;
+      }
+
+      /* ── WHY SECTION ── */
+      .why-section {
+        background: var(--dark);
+      }
+      .why-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .why-card {
+        padding: 52px 44px;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .why-card:last-child {
+        border-right: none;
+      }
+      .why-num {
+        font-size: 5rem;
+        font-weight: 900;
+        color: var(--amber);
+        line-height: 1;
+        margin-bottom: 20px;
+        opacity: 0.85;
+      }
+      .why-card h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 14px;
+      }
+      .why-card p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.42);
+        line-height: 1.8;
+        font-weight: 300;
+      }
+
+      /* ── PROGRAMS PHOTO GRID ── */
+      .programs-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3px;
+      }
+      .prog-card {
+        position: relative;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .prog-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.45s ease;
+      }
+      .prog-card:hover img {
+        transform: scale(1.07);
+      }
+      .prog-card .prog-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.15) 50%,
+          transparent
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 28px;
+      }
+      .prog-tag {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: var(--amber);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+      }
+      .prog-card h3 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .prog-card p {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 4px;
+        font-weight: 300;
+      }
+
+      /* ── COMMUNITY ── */
+      .community-img {
+        width: 100%;
+        max-height: 520px;
+        object-fit: cover;
+      }
+      .community-banner {
+        background: var(--amber);
+        padding: 60px 56px;
+        text-align: center;
+      }
+      .community-banner h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+      .community-banner p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.75;
+        max-width: 660px;
+        margin: 0 auto 32px;
+        font-weight: 300;
+      }
+
+      /* ── NEWS ── */
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        margin-top: 52px;
+      }
+      .news-card {
+        background: #f7f7f7;
+        overflow: hidden;
+      }
+      .news-img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+      }
+      .news-body {
+        padding: 28px 24px;
+      }
+      .news-cat {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 12px;
+      }
+      .news-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #111;
+        line-height: 1.45;
+        margin-bottom: 12px;
+      }
+      .news-card p {
+        font-size: 0.875rem;
+        color: #666;
+        line-height: 1.7;
+        font-weight: 300;
+      }
+      .news-link {
+        display: inline-block;
+        margin-top: 18px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--amber);
+        border-bottom: 2px solid var(--amber);
+        padding-bottom: 2px;
+        transition: opacity 0.2s;
+      }
+      .news-link:hover {
+        opacity: 0.65;
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        width: 100%;
+        background-color: #f2a900;
+        padding: 90px 0 0 0;
+        color: #ffffff;
+        text-align: center;
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 56px;
+      }
+      .footer-logo {
+        margin-bottom: 20px;
+      }
+      .footer-logo img {
+        height: 180px;
+        width: auto;
+        filter: brightness(0) invert(1);
+        margin: 0 auto;
+      }
+      .footer-tagline {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 52px;
+        line-height: 1.75;
+      }
+      .footer-cols {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        text-align: left;
+        padding-bottom: 60px;
+      }
+      .footer-col h4 {
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .footer-col ul li a:hover {
+        color: #fff;
+      }
+      .footer-col p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        line-height: 1.85;
+        font-weight: 500;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 28px 0;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 1270px) {
+        body {
+          font-size: 18px;
+          line-height: 25px;
+        }
+        .footer {
+          padding: 72px 0 0 0;
+        }
+      }
+      @media (max-width: 1024px) {
+        .site-nav {
+          padding: 0 32px;
+        }
+        .container {
+          padding: 0 32px;
+        }
+      }
+      @media (max-width: 860px) {
+        .site-nav .nav-links {
+          display: none;
+        }
+        .two-col {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+        .why-card {
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .programs-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-cols {
+          grid-template-columns: 1fr 1fr;
+        }
+        .community-banner {
+          padding: 48px 32px;
+        }
+      }
+      @media (max-width: 540px) {
+        .programs-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-cols {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ══════════════════════════════════════ ANIME NAV -->
+    <div class="anime-nav-logo">
+      <a href="#"><img src="brand_assets/KM-logo1.png" alt="Kajang Maker"></a>
+    </div>
+
+    <div class="anime-pill" id="animePill">
+      <!-- sliding glow background -->
+      <div class="anime-link-glow" id="animeGlow"></div>
+      <!-- hover highlight -->
+      <div class="anime-link-hover" id="animeHover"></div>
+      <!-- mascot -->
+      <div class="anime-mascot" id="animeMascot">
+        <div class="mascot-face">
+          <div class="mascot-eye left"></div>
+          <div class="mascot-eye right"></div>
+          <div class="mascot-cheek left"></div>
+          <div class="mascot-cheek right"></div>
+          <div class="mascot-mouth"></div>
+        </div>
+        <div class="mascot-pointer"></div>
+      </div>
+      <a href="#about"    class="anime-link active" data-label="About">About</a>
+      <a href="#programs" class="anime-link"         data-label="Programs">Programs</a>
+      <a href="#why"      class="anime-link"         data-label="Why Us">Why Us</a>
+      <a href="#news"     class="anime-link"         data-label="News">News</a>
+      <a href="#contact"  class="anime-link"         data-label="Contact">Contact</a>
+    </div>
+
+    <div class="anime-nav-enroll">
+      <a href="#contact" class="btn-amber">Enroll Now</a>
+    </div>
+
+    <!-- ══════════════════════════════════════ HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-eyebrow">Kajang · Malaysia · Since 2015</span>
+        <h1>Hands-On Learning,<br /><em>Future-Ready</em> Skills</h1>
+        <p class="hero-sub">
+          Empowering every student in Kajang with real-world STEM, AI, and
+          robotics education — building the problem-solvers of tomorrow.
+        </p>
+        <div class="hero-cta">
+          <a href="#programs" class="btn-amber">Explore Programs</a>
+          <a href="#about" class="btn-outline">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ INTRO -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <span class="sec-label">STEM Education in Kajang</span>
+            <div class="amber-bar"></div>
+            <h2 class="sec-title">Training in the<br /><em>Real World</em></h2>
+            <p class="sec-body">
+              At Kajang Maker, learning happens through doing. Our hands-on
+              workshops put students in front of real robots, real circuits, and
+              real AI challenges — not just textbooks. From primary school
+              children discovering electronics to secondary students competing
+              in national championships, we meet learners where they are.
+            </p>
+            <p class="sec-body">
+              Founded in 2015, we have grown from a single workshop space into a
+              thriving community of curious minds, dedicated mentors, and proud
+              school partners across Kajang and the Klang Valley.
+            </p>
+            <a href="#programs" class="btn-amber">See Our Programs</a>
+          </div>
+          <div>
+            <img
+              class="intro-img"
+              src="photos/IMG_20191117_111940.jpg"
+              alt="STEM Workshop at Kajang Maker"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="amber-strip"></div>
+
+    <!-- ══════════════════════════════════════ 10 YEARS -->
+    <section class="section years-section">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <img
+              class="years-img"
+              src="photos/IMG_20200301_181836.jpg"
+              alt="10 Years of Kajang Maker"
+            />
+          </div>
+          <div>
+            <span class="sec-label" style="color: rgba(255, 255, 255, 0.45)"
+              >Our Track Record</span
+            >
+            <h2 class="sec-title light" style="margin-bottom: 40px">
+              10 Years of<br /><em>Building Futures</em>
+            </h2>
+            <div class="stats-list">
+              <div class="stat-row">
+                <div class="stat-num">500+</div>
+                <div>
+                  <p class="stat-label">Students Reached</p>
+                  <p class="stat-desc">
+                    Young learners across Kajang and the Klang Valley who have
+                    completed our programs since 2015.
+                  </p>
+                </div>
+              </div>
+              <div class="stat-row">
+                <div class="stat-num">50+</div>
+                <div>
+                  <p class="stat-label">School Partners</p>
+                  <p class="stat-desc">
+                    Primary and secondary schools we collaborate with to bring
+                    STEM directly into classrooms.
+                  </p>
+                </div>
+              </div>
+              <div class="stat-row">
+                <div class="stat-num">10+</div>
+                <div>
+                  <p class="stat-label">Active Programs</p>
+                  <p class="stat-desc">
+                    Structured learning tracks — from robotics and electronics
+                    to AI, coding, and beyond.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ DISCOVER PATH -->
+    <section class="section">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <img
+              class="path-img"
+              src="photos/IMG_20190720_120151.jpg"
+              alt="Discover Your Path"
+            />
+          </div>
+          <div>
+            <span class="sec-label">Find Your Track</span>
+            <div class="amber-bar"></div>
+            <h2 class="sec-title">Discover<br /><em>Your Path</em></h2>
+            <p class="sec-body">
+              Whether your child is just starting out or ready for national
+              competitions, Kajang Maker has a learning track that fits. Our
+              programs are designed to progress with the student — from
+              introductory workshops all the way to advanced AI and robotics
+              mentorship.
+            </p>
+            <p class="sec-body">
+              Each track is built around practical projects, guided by
+              experienced educators who are passionate about making STEM
+              accessible to every student.
+            </p>
+            <a href="#contact" class="btn-amber">Get Started Today</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ AI FEATURE -->
+    <section style="background: #f7f7f7; padding: 96px 0">
+      <div class="container">
+        <div class="two-col" style="direction: rtl">
+          <div style="direction: ltr">
+            <span class="sec-label">Artificial Intelligence</span>
+            <div class="amber-bar"></div>
+            <h2 class="sec-title">AI Applies<br /><em>to Everyone</em></h2>
+            <p class="sec-body">
+              AI is not just for engineers and data scientists — it is the
+              language of the future. Kajang Maker introduces students to
+              practical AI concepts: training simple models, understanding how
+              recommendation systems work, and building projects that use real
+              machine learning tools.
+            </p>
+            <p class="sec-body">
+              We make AI approachable, fun, and immediately relevant to
+              students' everyday lives — no prior coding experience required.
+            </p>
+            <a href="#contact" class="btn-amber">Learn About AI Programs</a>
+          </div>
+          <div style="direction: ltr">
+            <img
+              class="feature-img"
+              src="photos/IMG_20200301_184002.jpg"
+              alt="AI Education at Kajang Maker"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ WHY KAJANG MAKER -->
+    <section id="why" class="section why-section">
+      <div class="container">
+        <div class="why-header">
+          <span
+            class="sec-label"
+            style="display: block; text-align: center; margin-bottom: 10px"
+            >The Difference</span
+          >
+          <h2 class="sec-title light" style="text-align: center">
+            Why Choose <em>Kajang Maker</em>
+          </h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-num">1.</div>
+            <h3>Hands-On First</h3>
+            <p>
+              Every session is built around doing, not watching. Students build,
+              break, fix, and innovate — developing real skills through real
+              projects from day one. Textbooks stay on the shelf.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="why-num">2.</div>
+            <h3>Local & Proven</h3>
+            <p>
+              We are rooted in Kajang. Our instructors know the local education
+              landscape, speak the language of our students, and have spent over
+              a decade building trust with families and schools across the
+              region.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="why-num">3.</div>
+            <h3>Competition-Ready</h3>
+            <p>
+              Our students have placed in national and international STEM
+              competitions including STEAM Cup Malaysia and EnjoyAI Asia Open.
+              We train for real achievement, not just participation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ PROGRAMS PHOTO GRID -->
+    <section id="programs">
+      <div class="programs-grid">
+        <div class="prog-card">
+          <img src="photos/IMG_1854.JPG" alt="STEAM Cup 2017" />
+          <span class="prog-tag">Competition</span>
+          <div class="prog-overlay">
+            <h3>STEAM Cup Malaysia</h3>
+            <p>National robotics championship</p>
+          </div>
+        </div>
+        <div class="prog-card">
+          <img src="photos/IMG-20180624-WA0026.jpg" alt="Robotics Workshop" />
+          <span class="prog-tag">Workshop</span>
+          <div class="prog-overlay">
+            <h3>Robotics Basics</h3>
+            <p>Build and program your first robot</p>
+          </div>
+        </div>
+        <div class="prog-card">
+          <img src="photos/IMG-20180624-WA0049.jpg" alt="Team Projects" />
+          <span class="prog-tag">Community</span>
+          <div class="prog-overlay">
+            <h3>Team Projects</h3>
+            <p>Collaborative STEM challenges</p>
+          </div>
+        </div>
+        <div class="prog-card">
+          <img src="photos/IMG-20200209-WA0010.jpg" alt="STEM Open Course" />
+          <span class="prog-tag">Course</span>
+          <div class="prog-overlay">
+            <h3>STEM Open Course</h3>
+            <p>Self-paced learning tracks</p>
+          </div>
+        </div>
+        <div class="prog-card">
+          <img src="photos/IMG_20241026_091615.jpg" alt="AI Learning" />
+          <span class="prog-tag">AI</span>
+          <div class="prog-overlay">
+            <h3>AI for Students</h3>
+            <p>Practical artificial intelligence</p>
+          </div>
+        </div>
+        <div class="prog-card">
+          <img
+            src="photos/514322041_122133999506656201_2191720432636292387_n.jpg"
+            alt="School Partnerships"
+          />
+          <span class="prog-tag">Partnership</span>
+          <div class="prog-overlay">
+            <h3>School Programs</h3>
+            <p>Bringing STEM to your classroom</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ COMMUNITY -->
+    <section>
+      <img
+        class="community-img"
+        src="photos/529015860_122137158230656201_625951006997269348_n.jpg"
+        alt="Kajang Maker Community"
+      />
+      <div class="community-banner">
+        <h2>Our Community</h2>
+        <p>
+          Kajang Maker is more than a school — it is a growing community of
+          students, parents, educators, and STEM enthusiasts united by a belief
+          that hands-on learning changes lives. We celebrate every build, every
+          bug fixed, and every breakthrough.
+        </p>
+        <a
+          href="#contact"
+          class="btn-amber"
+          style="background: #fff; color: var(--amber)"
+          >Join Our Community</a
+        >
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ NEWS / ACHIEVEMENTS -->
+    <section id="news" class="section">
+      <div class="container">
+        <span class="sec-label">Latest Updates</span>
+        <div class="amber-bar"></div>
+        <h2 class="sec-title">Latest <em>Achievements</em></h2>
+        <div class="news-grid">
+          <div class="news-card">
+            <img
+              class="news-img"
+              src="photos/524296089_122135852912656201_6973961440125307156_n.jpg"
+              alt="EnjoyAI Asia Open 2025"
+            />
+            <div class="news-body">
+              <p class="news-cat">Competition · 2025</p>
+              <h3>EnjoyAI Asia Open 2025 — Kajang Maker Competes</h3>
+              <p>
+                Our students represented Malaysia at the EnjoyAI Asia Open 2025,
+                competing against teams from across the region in cutting-edge
+                AI challenges.
+              </p>
+              <a href="#contact" class="news-link">Read More →</a>
+            </div>
+          </div>
+          <div class="news-card">
+            <img
+              class="news-img"
+              src="photos/515089401_122133999548656201_2723043040317291535_n.jpg"
+              alt="Community Roundtable"
+            />
+            <div class="news-body">
+              <p class="news-cat">Community · 2025</p>
+              <h3>Community Roundtable: Future of STEM in Kajang</h3>
+              <p>
+                Educators, parents, and industry partners gathered to discuss
+                the next chapter of STEM education and how Kajang Maker plans to
+                expand its impact.
+              </p>
+              <a href="#contact" class="news-link">Read More →</a>
+            </div>
+          </div>
+          <div class="news-card">
+            <img
+              class="news-img"
+              src="photos/500998532_122131375466656201_1164130034942865603_n.jpg"
+              alt="Recognition"
+            />
+            <div class="news-body">
+              <p class="news-cat">Recognition · 2025</p>
+              <h3>Kajang Maker Recognised as STEM Community Champion</h3>
+              <p>
+                We are honoured to be recognised for our decade of contribution
+                to STEM education in the Kajang community and the Klang Valley.
+              </p>
+              <a href="#contact" class="news-link">Read More →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ CTA / CONTACT -->
+    <section id="contact" style="background: var(--dark2); padding: 96px 0; position: relative; overflow: hidden;">
+      <!-- animated background paths (injected by JS below) -->
+      <svg id="ctaPathsSvg" class="cta-paths-svg" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true"></svg>
+
+      <div class="container" style="text-align: center; position: relative; z-index: 2;">
+        <span
+          class="sec-label"
+          style="display: block; text-align: center; margin-bottom: 10px"
+          >Ready to Begin?</span
+        >
+        <h2
+          class="sec-title light"
+          style="max-width: 640px; margin: 0 auto 20px"
+        >
+          Start Your<br /><em>STEM Journey</em> Today
+        </h2>
+        <p
+          style="
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+          "
+        >
+          Get in touch to find out which program is right for your child, or to
+          bring Kajang Maker to your school.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+          "
+        >
+          <!-- Primary glass Enroll Now button -->
+          <a href="https://wa.me/60124185525" target="_blank" rel="noopener" class="btn-glass-wrap">
+            <span class="btn-glass-inner">
+              Enroll Now — WhatsApp Us
+              <span class="btn-glass-arrow">→</span>
+            </span>
+          </a>
+          <a href="mailto:tanyeepeng@kajangmaker.my" class="btn-outline"
+            >tanyeepeng@kajangmaker.my</a
+          >
+        </div>
+        <p
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+          "
+        >
+          www.kajangmaker.my
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <img src="brand_assets/KM-logo4.png" alt="Kajang Maker" />
+        </div>
+        <p class="footer-tagline">
+          STEM · AI · Robotics Education in Kajang, Malaysia<br />
+          Empowering students since 2015.
+        </p>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>About Kajang Maker</h4>
+            <p>
+              A hands-on STEM education provider based in Kajang, Malaysia —
+              offering workshops, courses, school partnerships, and mentorship
+              programs for students of all ages.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Programs</h4>
+            <ul>
+              <li><a href="#programs">Robotics Workshops</a></li>
+              <li><a href="#programs">STEM Open Course</a></li>
+              <li><a href="#programs">AI for Students</a></li>
+              <li><a href="#programs">School Partnerships</a></li>
+              <li><a href="#programs">Mentorship Program</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#why">Why Kajang Maker</a></li>
+              <li><a href="#news">Latest News</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="tel:+60124185525">+6012 418 5525</a></li>
+              <li>
+                <a href="mailto:tanyeepeng@kajangmaker.my"
+                  >tanyeepeng@kajangmaker.my</a
+                >
+              </li>
+              <li><a href="#">www.kajangmaker.my</a></li>
+              <li><a href="#">Kajang, Selangor, Malaysia</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          &copy; 2026 Kajang Maker. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  <script>
+    (function() {
+      const pill    = document.getElementById('animePill');
+      const glow    = document.getElementById('animeGlow');
+      const hover   = document.getElementById('animeHover');
+      const mascot  = document.getElementById('animeMascot');
+      const links   = document.querySelectorAll('.anime-link');
+
+      function getLocalRect(el) {
+        const pillR = pill.getBoundingClientRect();
+        const elR   = el.getBoundingClientRect();
+        return {
+          left:   elR.left - pillR.left,
+          top:    elR.top  - pillR.top,
+          width:  elR.width,
+          height: elR.height,
+        };
+      }
+
+      function moveGlow(el) {
+        const r = getLocalRect(el);
+        glow.style.left   = r.left   + 'px';
+        glow.style.top    = r.top    + 'px';
+        glow.style.width  = r.width  + 'px';
+        glow.style.height = r.height + 'px';
+      }
+
+      function moveMascot(el) {
+        const r = getLocalRect(el);
+        mascot.style.left = (r.left + r.width / 2) + 'px';
+      }
+
+      function setActive(el) {
+        links.forEach(l => l.classList.remove('active'));
+        el.classList.add('active');
+        moveGlow(el);
+        moveMascot(el);
+      }
+
+      // Init after layout paint
+      requestAnimationFrame(() => {
+        const active = document.querySelector('.anime-link.active');
+        if (active) {
+          const r = getLocalRect(active);
+          // Set immediately (no transition on first load)
+          glow.style.transition = 'none';
+          mascot.style.transition = 'none';
+          moveGlow(active);
+          moveMascot(active);
+          requestAnimationFrame(() => {
+            glow.style.transition = '';
+            mascot.style.transition = '';
+          });
+        }
+      });
+
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          setActive(this);
+        });
+
+        link.addEventListener('mouseenter', function() {
+          if (!this.classList.contains('active')) {
+            const r = getLocalRect(this);
+            hover.style.left   = r.left   + 'px';
+            hover.style.top    = r.top    + 'px';
+            hover.style.width  = r.width  + 'px';
+            hover.style.height = r.height + 'px';
+            hover.style.opacity = '1';
+          }
+          // Make mascot react — squint eyes
+          mascot.querySelectorAll('.mascot-eye').forEach(e => {
+            e.style.transform = 'scaleY(0.2)';
+          });
+          mascot.querySelector('.mascot-mouth').style.transform = 'translateX(-50%) scaleY(1.4)';
+        });
+
+        link.addEventListener('mouseleave', function() {
+          hover.style.opacity = '0';
+          mascot.querySelectorAll('.mascot-eye').forEach(e => {
+            e.style.transform = '';
+          });
+          mascot.querySelector('.mascot-mouth').style.transform = '';
+        });
+      });
+
+      // Scroll-based active update
+      const sections = ['about','programs','why','news','contact'];
+      window.addEventListener('scroll', function() {
+        const scrollY = window.scrollY + 120;
+        let current = sections[0];
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el && el.offsetTop <= scrollY) current = id;
+        });
+        const matchLink = document.querySelector('.anime-link[href="#' + current + '"]');
+        if (matchLink && !matchLink.classList.contains('active')) {
+          setActive(matchLink);
+        }
+      });
+    })();
+
+    // ── BACKGROUND PATHS: inject animated SVG paths into CTA section ──
+    (function() {
+      const svg = document.getElementById('ctaPathsSvg');
+      if (!svg) return;
+      const NS = 'http://www.w3.org/2000/svg';
+      // 36 paths flowing left→right, 36 flowing right→left
+      // ViewBox is 0 0 1440 600 — all coordinates stay within this range
+      [1, -1].forEach(function(dir) {
+        for (let i = 0; i < 36; i++) {
+          const yBase  = (i / 35) * 680 - 40;   // spread y from -40 to 640
+          const curve  = dir * (30 + i * 2.5);   // vary curvature per path
+          var d;
+          if (dir === 1) {
+            d = 'M-100 '  + (yBase - 50)
+              + ' C480 '  + (yBase + curve)
+              + ' 960 '   + (yBase - curve * 0.5)
+              + ' 1540 '  + (yBase + 35);
+          } else {
+            d = 'M1540 ' + (yBase + 50)
+              + ' C960 '  + (yBase + curve)
+              + ' 480 '   + (yBase - curve * 0.5)
+              + ' -100 '  + (yBase - 35);
+          }
+          const path = document.createElementNS(NS, 'path');
+          path.setAttribute('d', d);
+          path.setAttribute('stroke', 'white');
+          path.setAttribute('stroke-width', String(0.5 + i * 0.025));
+          path.setAttribute('fill', 'none');
+          const dur   = (16 + Math.random() * 12).toFixed(1) + 's';
+          const delay = (-Math.random() * 24).toFixed(1) + 's';
+          path.style.animation = 'pathSnake ' + dur + ' linear ' + delay + ' infinite';
+          svg.appendChild(path);
+        }
+      });
+    })();
+  </script>
+  </body>
+</html>

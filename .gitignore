@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Dev tool files
+temporary screenshots/
+SamplePage2.png
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

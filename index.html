@@ -1010,6 +1010,188 @@
         .btn-outline { width: 100%; text-align: center; padding: 14px 24px; }
       }
 
+      /* ── COURSES SECTION ── */
+      .courses-section {
+        background: #0d0f1c;
+        padding: 96px 0;
+      }
+      .course-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 52px;
+        background: rgba(255,255,255,0.03);
+      }
+      .course-card-left {
+        padding: 56px 52px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+      }
+      .course-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(82,113,255,0.15);
+        border: 1px solid rgba(82,113,255,0.3);
+        color: #8ba4ff;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 7px 16px;
+        border-radius: 999px;
+        margin-bottom: 24px;
+        width: fit-content;
+      }
+      .course-free-tag {
+        display: inline-block;
+        background: var(--amber);
+        color: #111;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 999px;
+        margin-bottom: 20px;
+        width: fit-content;
+      }
+      .course-card-left h3 {
+        font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 18px;
+      }
+      .course-card-left h3 em {
+        font-style: normal;
+        color: var(--amber);
+      }
+      .course-card-left p {
+        font-size: 0.95rem;
+        color: rgba(255,255,255,0.45);
+        line-height: 1.8;
+        font-weight: 300;
+        margin-bottom: 32px;
+      }
+      .course-features {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+      .course-feature {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+      }
+      .course-feature-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--amber);
+        flex-shrink: 0;
+      }
+      .btn-course {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--amber);
+        color: #111;
+        padding: 15px 32px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border-radius: 10px;
+        width: fit-content;
+        transition: background 0.2s, transform 0.18s;
+        text-decoration: none;
+      }
+      .btn-course:hover {
+        background: var(--amber-dark);
+        transform: translateY(-2px);
+      }
+      .course-card-right {
+        background: linear-gradient(135deg, #1a1f3a 0%, #0d1020 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 52px 40px;
+        gap: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .course-card-right::before {
+        content: '';
+        position: absolute;
+        top: -80px; right: -80px;
+        width: 280px; height: 280px;
+        background: radial-gradient(circle, rgba(82,113,255,0.18) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .course-modules {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 320px;
+      }
+      .course-module-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 12px;
+        padding: 14px 18px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .course-module-item:hover {
+        background: rgba(255,255,255,0.09);
+        border-color: rgba(82,113,255,0.3);
+        color: #fff;
+      }
+      .course-module-num {
+        width: 28px;
+        height: 28px;
+        background: rgba(82,113,255,0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 900;
+        color: #8ba4ff;
+        flex-shrink: 0;
+      }
+      .course-link-tag {
+        font-size: 11px;
+        color: rgba(255,255,255,0.25);
+        letter-spacing: 0.05em;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      @media (max-width: 768px) {
+        .course-card { grid-template-columns: 1fr; }
+        .course-card-left { padding: 36px 24px; }
+        .course-card-right { padding: 36px 24px; }
+      }
+
       @media (max-width: 480px) {
         .hero h1 { font-size: 2.2rem; }
         .programs-grid { grid-template-columns: 1fr; }
@@ -1042,6 +1224,7 @@
       </div>
       <a href="#about"    class="anime-link active" data-label="About">About</a>
       <a href="#programs" class="anime-link"         data-label="Programs">Programs</a>
+      <a href="#courses"  class="anime-link"         data-label="Courses">Courses</a>
       <a href="#why"      class="anime-link"         data-label="Why Us">Why Us</a>
       <a href="#news"     class="anime-link"         data-label="News">News</a>
       <a href="#contact"  class="anime-link"         data-label="Contact">Contact</a>
@@ -1061,6 +1244,7 @@
     <nav class="mobile-menu" id="mobileMenu">
       <a href="#about"    class="mobile-menu-link">About</a>
       <a href="#programs" class="mobile-menu-link">Programs</a>
+      <a href="#courses"  class="mobile-menu-link">Courses</a>
       <a href="#why"      class="mobile-menu-link">Why Us</a>
       <a href="#news"     class="mobile-menu-link">News</a>
       <a href="#contact"  class="mobile-menu-link">Contact</a>
@@ -1238,6 +1422,85 @@
               src="photos/IMG_20200301_184002.jpg"
               alt="AI Education at Kajang Maker"
             />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ COURSES -->
+    <section id="courses" class="courses-section">
+      <div class="container">
+        <span class="sec-label" style="display:block;margin-bottom:10px;">Online Learning</span>
+        <div class="amber-bar"></div>
+        <h2 class="sec-title light">Free <em>Course Module</em><br>for Students</h2>
+
+        <div class="course-card">
+          <!-- Left: description -->
+          <div class="course-card-left">
+            <span class="course-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              FlowLogic 6 · Arduino
+            </span>
+            <span class="course-free-tag">100% Free</span>
+            <h3>Learn Flow Logic &<br><em>Arduino Programming</em></h3>
+            <p>A beginner-friendly course that takes students from zero experience to building interactive Arduino projects using FlowLogic 6 — a visual, flowchart-based programming environment. No prior coding or electronics knowledge needed.</p>
+            <div class="course-features">
+              <div class="course-feature">
+                <div class="course-feature-dot"></div>
+                Visual flowchart-based programming with FlowLogic 6
+              </div>
+              <div class="course-feature">
+                <div class="course-feature-dot"></div>
+                Build real projects: LEDs, buzzers, sensors &amp; breadboards
+              </div>
+              <div class="course-feature">
+                <div class="course-feature-dot"></div>
+                Virtual simulation before hands-on building
+              </div>
+              <div class="course-feature">
+                <div class="course-feature-dot"></div>
+                6 progressive modules — learn at your own pace
+              </div>
+              <div class="course-feature">
+                <div class="course-feature-dot"></div>
+                No registration required — start immediately
+              </div>
+            </div>
+            <a href="https://kyoik.com/arduino" target="_blank" rel="noopener" class="btn-course">
+              Start Learning Free
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Right: module list -->
+          <div class="course-card-right">
+            <div class="course-modules">
+              <div class="course-module-item">
+                <div class="course-module-num">01</div>
+                Introduction to FlowLogic 6
+              </div>
+              <div class="course-module-item">
+                <div class="course-module-num">02</div>
+                Flow Control &amp; Logic Basics
+              </div>
+              <div class="course-module-item">
+                <div class="course-module-num">03</div>
+                Arduino UNO &amp; Digital Output
+              </div>
+              <div class="course-module-item">
+                <div class="course-module-num">04</div>
+                Sensors &amp; Input Handling
+              </div>
+              <div class="course-module-item">
+                <div class="course-module-num">05</div>
+                Interactive Project Build
+              </div>
+              <div class="course-module-item">
+                <div class="course-module-num">06</div>
+                Final Physical Computing Project
+              </div>
+            </div>
+            <p class="course-link-tag">kyoik.com/arduino</p>
           </div>
         </div>
       </div>
@@ -1641,7 +1904,7 @@
       });
 
       // Scroll-based active update
-      const sections = ['about','programs','why','news','contact'];
+      const sections = ['about','programs','courses','why','news','contact'];
       window.addEventListener('scroll', function() {
         const scrollY = window.scrollY + 120;
         let current = sections[0];

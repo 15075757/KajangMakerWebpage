@@ -119,7 +119,7 @@
         -webkit-backdrop-filter: blur(12px);
         border-radius: 14px;
         padding: 6px 12px;
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
       .anime-nav-logo img {
         height: 52px;
@@ -155,7 +155,9 @@
         -webkit-backdrop-filter: blur(20px);
         padding: 6px 8px;
         border-radius: 999px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0,0,0,0.2);
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.35),
+          0 2px 8px rgba(0, 0, 0, 0.2);
         white-space: nowrap;
         overflow: visible;
       }
@@ -172,26 +174,56 @@
         transition: color 0.2s;
         z-index: 1;
       }
-      .anime-link:hover { color: #fff; }
-      .anime-link.active { color: #fff; }
+      .anime-link:hover {
+        color: #fff;
+      }
+      .anime-link.active {
+        color: #fff;
+      }
+      .nav-free-badge {
+        display: inline-block;
+        background: var(--amber);
+        color: #111;
+        font-size: 8px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 2px 6px;
+        border-radius: 999px;
+        margin-left: 5px;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+        line-height: 1.5;
+      }
 
       /* Active glow bg */
       .anime-link-glow {
         position: absolute;
         border-radius: 999px;
         background: rgba(82, 113, 255, 0.28);
-        box-shadow: 0 0 18px rgba(82,113,255,0.45), 0 0 40px rgba(82,113,255,0.2);
+        box-shadow:
+          0 0 18px rgba(82, 113, 255, 0.45),
+          0 0 40px rgba(82, 113, 255, 0.2);
         pointer-events: none;
         z-index: 0;
-        transition: left 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
-                    width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
-                    top 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
-                    height 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition:
+          left 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+          width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+          top 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+          height 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
         animation: glowPulse 2.5s ease-in-out infinite;
       }
       @keyframes glowPulse {
-        0%, 100% { opacity: 0.7; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.04); }
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.04);
+        }
       }
 
       /* Hover bg */
@@ -217,8 +249,13 @@
         animation: mascotBob 2s ease-in-out infinite;
       }
       @keyframes mascotBob {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-4px); }
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
       }
       .mascot-face {
         width: 42px;
@@ -226,33 +263,50 @@
         background: #fff;
         border-radius: 50%;
         position: relative;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
       }
       .mascot-eye {
-        width: 7px; height: 7px;
+        width: 7px;
+        height: 7px;
         background: #111;
         border-radius: 50%;
         position: absolute;
         top: 38%;
         animation: eyeBlink 4s ease-in-out infinite;
       }
-      .mascot-eye.left { left: 23%; }
-      .mascot-eye.right { right: 23%; }
+      .mascot-eye.left {
+        left: 23%;
+      }
+      .mascot-eye.right {
+        right: 23%;
+      }
       @keyframes eyeBlink {
-        0%, 88%, 100% { transform: scaleY(1); }
-        93% { transform: scaleY(0.08); }
+        0%,
+        88%,
+        100% {
+          transform: scaleY(1);
+        }
+        93% {
+          transform: scaleY(0.08);
+        }
       }
       .mascot-cheek {
-        width: 9px; height: 5px;
-        background: rgba(255,130,130,0.65);
+        width: 9px;
+        height: 5px;
+        background: rgba(255, 130, 130, 0.65);
         border-radius: 50%;
         position: absolute;
         top: 56%;
       }
-      .mascot-cheek.left { left: 10%; }
-      .mascot-cheek.right { right: 10%; }
+      .mascot-cheek.left {
+        left: 10%;
+      }
+      .mascot-cheek.right {
+        right: 10%;
+      }
       .mascot-mouth {
-        width: 13px; height: 7px;
+        width: 13px;
+        height: 7px;
         border-bottom: 2.5px solid #333;
         border-radius: 0 0 10px 10px;
         position: absolute;
@@ -261,18 +315,25 @@
         transform: translateX(-50%);
       }
       .mascot-pointer {
-        width: 11px; height: 11px;
+        width: 11px;
+        height: 11px;
         background: #fff;
         transform: rotate(45deg);
         margin-top: -6px;
         border-radius: 2px;
-        box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
       }
 
       @keyframes shine {
-        0% { transform: translateX(-100%); }
-        50% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
+        0% {
+          transform: translateX(-100%);
+        }
+        50% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
       }
 
       .btn-amber {
@@ -319,10 +380,20 @@
 
       /* ── BACKGROUND PATHS + GLASS BUTTON ── */
       @keyframes pathSnake {
-        from { stroke-dashoffset: 2000;  opacity: 0.08; }
-        25%  {                            opacity: 0.4;  }
-        75%  {                            opacity: 0.4;  }
-        to   { stroke-dashoffset: -2000; opacity: 0.08; }
+        from {
+          stroke-dashoffset: 2000;
+          opacity: 0.08;
+        }
+        25% {
+          opacity: 0.4;
+        }
+        75% {
+          opacity: 0.4;
+        }
+        to {
+          stroke-dashoffset: -2000;
+          opacity: 0.08;
+        }
       }
       .cta-paths-svg {
         position: absolute;
@@ -339,20 +410,28 @@
       /* Glass wrapper — gradient border effect */
       .btn-glass-wrap {
         display: inline-block;
-        background: linear-gradient(to bottom, rgba(255,255,255,0.18), rgba(0,0,0,0.15));
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.18),
+          rgba(0, 0, 0, 0.15)
+        );
         padding: 1px;
         border-radius: 1.2rem;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        box-shadow: 0 10px 40px rgba(0,0,0,0.45);
-        transition: box-shadow 0.3s, transform 0.3s;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
         text-decoration: none;
       }
       .btn-glass-wrap:hover {
-        box-shadow: 0 18px 56px rgba(0,0,0,0.55);
+        box-shadow: 0 18px 56px rgba(0, 0, 0, 0.55);
         transform: translateY(-2px);
       }
-      .btn-glass-wrap:active { transform: translateY(0); }
+      .btn-glass-wrap:active {
+        transform: translateY(0);
+      }
       .btn-glass-inner {
         display: inline-flex;
         align-items: center;
@@ -362,10 +441,12 @@
         font-weight: 700;
         letter-spacing: 0.04em;
         border-radius: calc(1.2rem - 1px);
-        background: rgba(255,255,255,0.96);
+        background: rgba(255, 255, 255, 0.96);
         color: #111;
-        border: 1px solid rgba(0,0,0,0.08);
-        transition: background 0.25s, opacity 0.25s;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        transition:
+          background 0.25s,
+          opacity 0.25s;
         white-space: nowrap;
       }
       .btn-glass-wrap:hover .btn-glass-inner {
@@ -374,7 +455,9 @@
       }
       .btn-glass-arrow {
         display: inline-block;
-        transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s;
+        transition:
+          transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.25s;
         opacity: 0.65;
         font-size: 1.15em;
       }
@@ -902,7 +985,7 @@
         right: 20px;
         z-index: 300;
         background: rgba(10, 10, 20, 0.78);
-        border: 1px solid rgba(255,255,255,0.15);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         border-radius: 12px;
@@ -919,16 +1002,26 @@
         height: 2px;
         background: #fff;
         border-radius: 2px;
-        transition: transform 0.3s ease, opacity 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          opacity 0.3s ease;
       }
-      .mobile-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .mobile-menu-btn.open span:nth-child(2) { opacity: 0; }
-      .mobile-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .mobile-menu-btn.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .mobile-menu-btn.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-menu-btn.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
 
       .mobile-menu {
         display: none;
         position: fixed;
-        top: 0; left: 0; right: 0;
+        top: 0;
+        left: 0;
+        right: 0;
         background: rgba(8, 8, 18, 0.97);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
@@ -939,21 +1032,27 @@
         transform: translateY(-105%);
         transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      .mobile-menu.open { transform: translateY(0); }
+      .mobile-menu.open {
+        transform: translateY(0);
+      }
       .mobile-menu-link {
         font-size: 1.1rem;
         font-weight: 700;
-        color: rgba(255,255,255,0.6);
+        color: rgba(255, 255, 255, 0.6);
         padding: 18px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
         text-transform: uppercase;
         letter-spacing: 0.08em;
         transition: color 0.2s;
         text-decoration: none;
         display: block;
       }
-      .mobile-menu-link:last-child { border-bottom: none; }
-      .mobile-menu-link:hover { color: #fff; }
+      .mobile-menu-link:last-child {
+        border-bottom: none;
+      }
+      .mobile-menu-link:hover {
+        color: #fff;
+      }
       .mobile-enroll-btn {
         display: block;
         background: var(--amber);
@@ -971,43 +1070,100 @@
 
       /* ── MOBILE RESPONSIVE ── */
       @media (max-width: 768px) {
-        .mobile-menu-btn { display: flex; }
-        .mobile-menu { display: flex; }
-        .anime-pill { display: none !important; }
-        .anime-nav-enroll { display: none !important; }
-        .anime-nav-logo img { height: 40px; }
+        .mobile-menu-btn {
+          display: flex;
+        }
+        .mobile-menu {
+          display: flex;
+        }
+        .anime-pill {
+          display: none !important;
+        }
+        .anime-nav-enroll {
+          display: none !important;
+        }
+        .anime-nav-logo img {
+          height: 40px;
+        }
 
-        .section { padding: 56px 0; }
-        .container { padding: 0 20px; }
-        .footer-inner { padding: 0 20px; }
+        .section {
+          padding: 56px 0;
+        }
+        .container {
+          padding: 0 20px;
+        }
+        .footer-inner {
+          padding: 0 20px;
+        }
 
-        .hero { min-height: 500px; }
-        .hero-content { padding: 100px 20px 52px; }
+        .hero {
+          min-height: 500px;
+        }
+        .hero-content {
+          padding: 100px 20px 52px;
+        }
 
-        .two-col { grid-template-columns: 1fr; gap: 32px; }
-        .why-grid { grid-template-columns: 1fr; }
+        .two-col {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
         .why-card {
           padding: 32px 20px;
           border-right: none;
-          border-bottom: 1px solid rgba(255,255,255,0.1);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .why-card:last-child { border-bottom: none; }
-        .programs-grid { grid-template-columns: repeat(2, 1fr); }
-        .news-grid { grid-template-columns: 1fr; }
+        .why-card:last-child {
+          border-bottom: none;
+        }
+        .programs-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
 
-        .community-banner { padding: 40px 20px; }
-        .community-banner p { font-size: 0.95rem; }
+        .community-banner {
+          padding: 40px 20px;
+        }
+        .community-banner p {
+          font-size: 0.95rem;
+        }
 
-        .footer { padding: 52px 0 0; }
-        .footer-logo img { height: 100px; }
-        .footer-tagline { font-size: 1rem; margin-bottom: 36px; }
-        .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
+        .footer {
+          padding: 52px 0 0;
+        }
+        .footer-logo img {
+          height: 100px;
+        }
+        .footer-tagline {
+          font-size: 1rem;
+          margin-bottom: 36px;
+        }
+        .footer-cols {
+          grid-template-columns: 1fr 1fr;
+          gap: 28px;
+        }
 
-        #contact { padding: 64px 0 !important; }
+        #contact {
+          padding: 64px 0 !important;
+        }
 
-        .btn-glass-wrap { width: 100%; text-align: center; }
-        .btn-glass-inner { justify-content: center; padding: 16px 24px; }
-        .btn-outline { width: 100%; text-align: center; padding: 14px 24px; }
+        .btn-glass-wrap {
+          width: 100%;
+          text-align: center;
+        }
+        .btn-glass-inner {
+          justify-content: center;
+          padding: 16px 24px;
+        }
+        .btn-outline {
+          width: 100%;
+          text-align: center;
+          padding: 14px 24px;
+        }
       }
 
       /* ── COURSES SECTION ── */
@@ -1019,11 +1175,11 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0;
-        border: 1px solid rgba(255,255,255,0.08);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 20px;
         overflow: hidden;
         margin-top: 52px;
-        background: rgba(255,255,255,0.03);
+        background: rgba(255, 255, 255, 0.03);
       }
       .course-card-left {
         padding: 56px 52px;
@@ -1036,8 +1192,8 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(82,113,255,0.15);
-        border: 1px solid rgba(82,113,255,0.3);
+        background: rgba(82, 113, 255, 0.15);
+        border: 1px solid rgba(82, 113, 255, 0.3);
         color: #8ba4ff;
         font-size: 11px;
         font-weight: 800;
@@ -1075,7 +1231,7 @@
       }
       .course-card-left p {
         font-size: 0.95rem;
-        color: rgba(255,255,255,0.45);
+        color: rgba(255, 255, 255, 0.45);
         line-height: 1.8;
         font-weight: 300;
         margin-bottom: 32px;
@@ -1092,7 +1248,7 @@
         gap: 12px;
         font-size: 0.88rem;
         font-weight: 600;
-        color: rgba(255,255,255,0.7);
+        color: rgba(255, 255, 255, 0.7);
       }
       .course-feature-dot {
         width: 8px;
@@ -1114,7 +1270,9 @@
         text-transform: uppercase;
         border-radius: 10px;
         width: fit-content;
-        transition: background 0.2s, transform 0.18s;
+        transition:
+          background 0.2s,
+          transform 0.18s;
         text-decoration: none;
       }
       .btn-course:hover {
@@ -1133,11 +1291,17 @@
         overflow: hidden;
       }
       .course-card-right::before {
-        content: '';
+        content: "";
         position: absolute;
-        top: -80px; right: -80px;
-        width: 280px; height: 280px;
-        background: radial-gradient(circle, rgba(82,113,255,0.18) 0%, transparent 70%);
+        top: -80px;
+        right: -80px;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(
+          circle,
+          rgba(82, 113, 255, 0.18) 0%,
+          transparent 70%
+        );
         pointer-events: none;
       }
       .course-modules {
@@ -1151,24 +1315,26 @@
         display: flex;
         align-items: center;
         gap: 14px;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.07);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.07);
         border-radius: 12px;
         padding: 14px 18px;
         font-size: 0.85rem;
         font-weight: 600;
-        color: rgba(255,255,255,0.7);
-        transition: background 0.2s, border-color 0.2s;
+        color: rgba(255, 255, 255, 0.7);
+        transition:
+          background 0.2s,
+          border-color 0.2s;
       }
       .course-module-item:hover {
-        background: rgba(255,255,255,0.09);
-        border-color: rgba(82,113,255,0.3);
+        background: rgba(255, 255, 255, 0.09);
+        border-color: rgba(82, 113, 255, 0.3);
         color: #fff;
       }
       .course-module-num {
         width: 28px;
         height: 28px;
-        background: rgba(82,113,255,0.2);
+        background: rgba(82, 113, 255, 0.2);
         border-radius: 8px;
         display: flex;
         align-items: center;
@@ -1180,30 +1346,45 @@
       }
       .course-link-tag {
         font-size: 11px;
-        color: rgba(255,255,255,0.25);
+        color: rgba(255, 255, 255, 0.25);
         letter-spacing: 0.05em;
         text-align: center;
         margin-top: 4px;
       }
 
       @media (max-width: 768px) {
-        .course-card { grid-template-columns: 1fr; }
-        .course-card-left { padding: 36px 24px; }
-        .course-card-right { padding: 36px 24px; }
+        .course-card {
+          grid-template-columns: 1fr;
+        }
+        .course-card-left {
+          padding: 36px 24px;
+        }
+        .course-card-right {
+          padding: 36px 24px;
+        }
       }
 
       @media (max-width: 480px) {
-        .hero h1 { font-size: 2.2rem; }
-        .programs-grid { grid-template-columns: 1fr; }
-        .footer-cols { grid-template-columns: 1fr; }
-        .stat-num { font-size: 2.6rem; min-width: 76px; }
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+        .programs-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-cols {
+          grid-template-columns: 1fr;
+        }
+        .stat-num {
+          font-size: 2.6rem;
+          min-width: 76px;
+        }
       }
     </style>
   </head>
   <body>
     <!-- ══════════════════════════════════════ ANIME NAV -->
     <div class="anime-nav-logo">
-      <a href="#"><img src="brand_assets/KM-logo1.png" alt="Kajang Maker"></a>
+      <a href="#"><img src="brand_assets/KM-logo1.png" alt="Kajang Maker" /></a>
     </div>
 
     <div class="anime-pill" id="animePill">
@@ -1222,18 +1403,49 @@
         </div>
         <div class="mascot-pointer"></div>
       </div>
-      <a href="#about"    class="anime-link active" data-label="About">About</a>
-      <a href="#programs" class="anime-link"         data-label="Programs">Programs</a>
-      <a href="#courses"  class="anime-link"         data-label="Courses">Courses</a>
-      <a href="#why"      class="anime-link"         data-label="Why Us">Why Us</a>
-      <a href="#news"     class="anime-link"         data-label="News">News</a>
-      <a href="#contact"  class="anime-link"         data-label="Contact">Contact</a>
+      <a href="#about" class="anime-link active" data-label="About">About</a>
+      <a href="#programs" class="anime-link" data-label="Programs">Programs</a>
+      <a href="#courses" class="anime-link" data-label="Courses">Courses<span class="nav-free-badge">Free</span></a>
+      <a href="#why" class="anime-link" data-label="Why Us">Why Us</a>
+      <a href="#news" class="anime-link" data-label="News">News</a>
+      <a href="#contact" class="anime-link" data-label="Contact">Contact</a>
     </div>
 
     <div class="anime-nav-enroll">
-      <a href="https://wa.me/60124185525" target="_blank" rel="noopener" class="btn-amber" style="display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        <span style="font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;">WhatsApp Us</span>
+      <a
+        href="https://wa.me/60124185525"
+        target="_blank"
+        rel="noopener"
+        class="btn-amber"
+        style="
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 12px 20px;
+          border-radius: 10px;
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          style="flex-shrink: 0"
+        >
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+          />
+        </svg>
+        <span
+          style="
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+          "
+          >WhatsApp Us</span
+        >
       </a>
     </div>
 
@@ -1242,14 +1454,35 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="mobile-menu" id="mobileMenu">
-      <a href="#about"    class="mobile-menu-link">About</a>
+      <a href="#about" class="mobile-menu-link">About</a>
       <a href="#programs" class="mobile-menu-link">Programs</a>
-      <a href="#courses"  class="mobile-menu-link">Courses</a>
-      <a href="#why"      class="mobile-menu-link">Why Us</a>
-      <a href="#news"     class="mobile-menu-link">News</a>
-      <a href="#contact"  class="mobile-menu-link">Contact</a>
-      <a href="https://wa.me/60124185525" target="_blank" rel="noopener" class="mobile-menu-link mobile-enroll-btn" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <a href="#courses" class="mobile-menu-link">Courses <span class="nav-free-badge" style="font-size:9px;padding:3px 8px;">Free Access</span></a>
+      <a href="#why" class="mobile-menu-link">Why Us</a>
+      <a href="#news" class="mobile-menu-link">News</a>
+      <a href="#contact" class="mobile-menu-link">Contact</a>
+      <a
+        href="https://wa.me/60124185525"
+        target="_blank"
+        rel="noopener"
+        class="mobile-menu-link mobile-enroll-btn"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+          />
+        </svg>
         WhatsApp Us
       </a>
     </nav>
@@ -1430,20 +1663,38 @@
     <!-- ══════════════════════════════════════ COURSES -->
     <section id="courses" class="courses-section">
       <div class="container">
-        <span class="sec-label" style="display:block;margin-bottom:10px;">Online Learning</span>
+        <span class="sec-label" style="display: block; margin-bottom: 10px"
+          >Online Learning</span
+        >
         <div class="amber-bar"></div>
-        <h2 class="sec-title light">Free <em>Course Module</em><br>for Students</h2>
+        <h2 class="sec-title light">
+          Free <em>Course Module</em><br />for Students
+        </h2>
 
         <div class="course-card">
           <!-- Left: description -->
           <div class="course-card-left">
             <span class="course-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                />
+              </svg>
               FlowLogic 6 · Arduino
             </span>
             <span class="course-free-tag">100% Free</span>
-            <h3>Learn Flow Logic &<br><em>Arduino Programming</em></h3>
-            <p>A beginner-friendly course that takes students from zero experience to building interactive Arduino projects using FlowLogic 6 — a visual, flowchart-based programming environment. No prior coding or electronics knowledge needed.</p>
+            <h3>Learn Flow Logic &<br /><em>Arduino Programming</em></h3>
+            <p>
+              A beginner-friendly course that takes students from zero
+              experience to building interactive Arduino projects using
+              FlowLogic 6 — a visual, flowchart-based programming environment.
+              No prior coding or electronics knowledge needed.
+            </p>
             <div class="course-features">
               <div class="course-feature">
                 <div class="course-feature-dot"></div>
@@ -1466,9 +1717,25 @@
                 No registration required — start immediately
               </div>
             </div>
-            <a href="https://kyoik.com/arduino" target="_blank" rel="noopener" class="btn-course">
+            <a
+              href="https://kyoik.com/arduino"
+              target="_blank"
+              rel="noopener"
+              class="btn-course"
+            >
               Start Learning Free
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
           </div>
 
@@ -1581,7 +1848,7 @@
         </div>
         <div class="prog-card">
           <img src="photos/IMG-20200209-WA0010.jpg" alt="STEM Open Course" />
-          <span class="prog-tag">Course</span>
+          <span class="prog-tag">Open Course</span>
           <div class="prog-overlay">
             <h3>STEM Open Course</h3>
             <p>Self-paced learning tracks</p>
@@ -1652,7 +1919,7 @@
               <p>
                 Our students represented Malaysia at the EnjoyAI Asia Open 2025,
                 competing against teams from across the region in cutting-edge
-                AI challenges.
+                robotics challenges.
               </p>
               <a href="#contact" class="news-link">Read More →</a>
             </div>
@@ -1695,11 +1962,29 @@
     </section>
 
     <!-- ══════════════════════════════════════ CTA / CONTACT -->
-    <section id="contact" style="background: var(--dark2); padding: 96px 0; position: relative; overflow: hidden;">
+    <section
+      id="contact"
+      style="
+        background: var(--dark2);
+        padding: 96px 0;
+        position: relative;
+        overflow: hidden;
+      "
+    >
       <!-- animated background paths (injected by JS below) -->
-      <svg id="ctaPathsSvg" class="cta-paths-svg" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true"></svg>
+      <svg
+        id="ctaPathsSvg"
+        class="cta-paths-svg"
+        viewBox="0 0 1440 600"
+        preserveAspectRatio="xMidYMid slice"
+        fill="none"
+        aria-hidden="true"
+      ></svg>
 
-      <div class="container" style="text-align: center; position: relative; z-index: 2;">
+      <div
+        class="container"
+        style="text-align: center; position: relative; z-index: 2"
+      >
         <span
           class="sec-label"
           style="display: block; text-align: center; margin-bottom: 10px"
@@ -1734,9 +2019,25 @@
           "
         >
           <!-- Primary glass Enroll Now button -->
-          <a href="https://wa.me/60124185525" target="_blank" rel="noopener" class="btn-glass-wrap">
+          <a
+            href="https://wa.me/60124185525"
+            target="_blank"
+            rel="noopener"
+            class="btn-glass-wrap"
+          >
             <span class="btn-glass-inner">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#25D366" style="flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="#25D366"
+                style="flex-shrink: 0"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
               Enroll Now — WhatsApp Us
               <span class="btn-glass-arrow">→</span>
             </span>
@@ -1817,162 +2118,185 @@
         </div>
       </div>
     </footer>
-  <script>
-    (function() {
-      const pill    = document.getElementById('animePill');
-      const glow    = document.getElementById('animeGlow');
-      const hover   = document.getElementById('animeHover');
-      const mascot  = document.getElementById('animeMascot');
-      const links   = document.querySelectorAll('.anime-link');
+    <script>
+      (function () {
+        const pill = document.getElementById("animePill");
+        const glow = document.getElementById("animeGlow");
+        const hover = document.getElementById("animeHover");
+        const mascot = document.getElementById("animeMascot");
+        const links = document.querySelectorAll(".anime-link");
 
-      function getLocalRect(el) {
-        const pillR = pill.getBoundingClientRect();
-        const elR   = el.getBoundingClientRect();
-        return {
-          left:   elR.left - pillR.left,
-          top:    elR.top  - pillR.top,
-          width:  elR.width,
-          height: elR.height,
-        };
-      }
-
-      function moveGlow(el) {
-        const r = getLocalRect(el);
-        glow.style.left   = r.left   + 'px';
-        glow.style.top    = r.top    + 'px';
-        glow.style.width  = r.width  + 'px';
-        glow.style.height = r.height + 'px';
-      }
-
-      function moveMascot(el) {
-        const r = getLocalRect(el);
-        mascot.style.left = (r.left + r.width / 2) + 'px';
-      }
-
-      function setActive(el) {
-        links.forEach(l => l.classList.remove('active'));
-        el.classList.add('active');
-        moveGlow(el);
-        moveMascot(el);
-      }
-
-      // Init after layout paint
-      requestAnimationFrame(() => {
-        const active = document.querySelector('.anime-link.active');
-        if (active) {
-          const r = getLocalRect(active);
-          // Set immediately (no transition on first load)
-          glow.style.transition = 'none';
-          mascot.style.transition = 'none';
-          moveGlow(active);
-          moveMascot(active);
-          requestAnimationFrame(() => {
-            glow.style.transition = '';
-            mascot.style.transition = '';
-          });
+        function getLocalRect(el) {
+          const pillR = pill.getBoundingClientRect();
+          const elR = el.getBoundingClientRect();
+          return {
+            left: elR.left - pillR.left,
+            top: elR.top - pillR.top,
+            width: elR.width,
+            height: elR.height,
+          };
         }
-      });
 
-      links.forEach(link => {
-        link.addEventListener('click', function(e) {
-          setActive(this);
-        });
+        function moveGlow(el) {
+          const r = getLocalRect(el);
+          glow.style.left = r.left + "px";
+          glow.style.top = r.top + "px";
+          glow.style.width = r.width + "px";
+          glow.style.height = r.height + "px";
+        }
 
-        link.addEventListener('mouseenter', function() {
-          if (!this.classList.contains('active')) {
-            const r = getLocalRect(this);
-            hover.style.left   = r.left   + 'px';
-            hover.style.top    = r.top    + 'px';
-            hover.style.width  = r.width  + 'px';
-            hover.style.height = r.height + 'px';
-            hover.style.opacity = '1';
+        function moveMascot(el) {
+          const r = getLocalRect(el);
+          mascot.style.left = r.left + r.width / 2 + "px";
+        }
+
+        function setActive(el) {
+          links.forEach((l) => l.classList.remove("active"));
+          el.classList.add("active");
+          moveGlow(el);
+          moveMascot(el);
+        }
+
+        // Init after layout paint
+        requestAnimationFrame(() => {
+          const active = document.querySelector(".anime-link.active");
+          if (active) {
+            const r = getLocalRect(active);
+            // Set immediately (no transition on first load)
+            glow.style.transition = "none";
+            mascot.style.transition = "none";
+            moveGlow(active);
+            moveMascot(active);
+            requestAnimationFrame(() => {
+              glow.style.transition = "";
+              mascot.style.transition = "";
+            });
           }
-          // Make mascot react — squint eyes
-          mascot.querySelectorAll('.mascot-eye').forEach(e => {
-            e.style.transform = 'scaleY(0.2)';
+        });
+
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            setActive(this);
           });
-          mascot.querySelector('.mascot-mouth').style.transform = 'translateX(-50%) scaleY(1.4)';
-        });
 
-        link.addEventListener('mouseleave', function() {
-          hover.style.opacity = '0';
-          mascot.querySelectorAll('.mascot-eye').forEach(e => {
-            e.style.transform = '';
+          link.addEventListener("mouseenter", function () {
+            if (!this.classList.contains("active")) {
+              const r = getLocalRect(this);
+              hover.style.left = r.left + "px";
+              hover.style.top = r.top + "px";
+              hover.style.width = r.width + "px";
+              hover.style.height = r.height + "px";
+              hover.style.opacity = "1";
+            }
+            // Make mascot react — squint eyes
+            mascot.querySelectorAll(".mascot-eye").forEach((e) => {
+              e.style.transform = "scaleY(0.2)";
+            });
+            mascot.querySelector(".mascot-mouth").style.transform =
+              "translateX(-50%) scaleY(1.4)";
           });
-          mascot.querySelector('.mascot-mouth').style.transform = '';
-        });
-      });
 
-      // Scroll-based active update
-      const sections = ['about','programs','courses','why','news','contact'];
-      window.addEventListener('scroll', function() {
-        const scrollY = window.scrollY + 120;
-        let current = sections[0];
-        sections.forEach(id => {
-          const el = document.getElementById(id);
-          if (el && el.offsetTop <= scrollY) current = id;
+          link.addEventListener("mouseleave", function () {
+            hover.style.opacity = "0";
+            mascot.querySelectorAll(".mascot-eye").forEach((e) => {
+              e.style.transform = "";
+            });
+            mascot.querySelector(".mascot-mouth").style.transform = "";
+          });
         });
-        const matchLink = document.querySelector('.anime-link[href="#' + current + '"]');
-        if (matchLink && !matchLink.classList.contains('active')) {
-          setActive(matchLink);
-        }
-      });
-    })();
 
-    // ── MOBILE HAMBURGER MENU ──
-    (function() {
-      const btn  = document.getElementById('mobileMenuBtn');
-      const menu = document.getElementById('mobileMenu');
-      if (!btn || !menu) return;
-      btn.addEventListener('click', function() {
-        btn.classList.toggle('open');
-        menu.classList.toggle('open');
-        document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-      });
-      menu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          btn.classList.remove('open');
-          menu.classList.remove('open');
-          document.body.style.overflow = '';
-        });
-      });
-    })();
-
-    // ── BACKGROUND PATHS: inject animated SVG paths into CTA section ──
-    (function() {
-      const svg = document.getElementById('ctaPathsSvg');
-      if (!svg) return;
-      const NS = 'http://www.w3.org/2000/svg';
-      // 36 paths flowing left→right, 36 flowing right→left
-      // ViewBox is 0 0 1440 600 — all coordinates stay within this range
-      [1, -1].forEach(function(dir) {
-        for (let i = 0; i < 36; i++) {
-          const yBase  = (i / 35) * 680 - 40;   // spread y from -40 to 640
-          const curve  = dir * (30 + i * 2.5);   // vary curvature per path
-          var d;
-          if (dir === 1) {
-            d = 'M-100 '  + (yBase - 50)
-              + ' C480 '  + (yBase + curve)
-              + ' 960 '   + (yBase - curve * 0.5)
-              + ' 1540 '  + (yBase + 35);
-          } else {
-            d = 'M1540 ' + (yBase + 50)
-              + ' C960 '  + (yBase + curve)
-              + ' 480 '   + (yBase - curve * 0.5)
-              + ' -100 '  + (yBase - 35);
+        // Scroll-based active update
+        const sections = [
+          "about",
+          "programs",
+          "courses",
+          "why",
+          "news",
+          "contact",
+        ];
+        window.addEventListener("scroll", function () {
+          const scrollY = window.scrollY + 120;
+          let current = sections[0];
+          sections.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el && el.offsetTop <= scrollY) current = id;
+          });
+          const matchLink = document.querySelector(
+            '.anime-link[href="#' + current + '"]',
+          );
+          if (matchLink && !matchLink.classList.contains("active")) {
+            setActive(matchLink);
           }
-          const path = document.createElementNS(NS, 'path');
-          path.setAttribute('d', d);
-          path.setAttribute('stroke', 'white');
-          path.setAttribute('stroke-width', String(0.5 + i * 0.025));
-          path.setAttribute('fill', 'none');
-          const dur   = (16 + Math.random() * 12).toFixed(1) + 's';
-          const delay = (-Math.random() * 24).toFixed(1) + 's';
-          path.style.animation = 'pathSnake ' + dur + ' linear ' + delay + ' infinite';
-          svg.appendChild(path);
-        }
-      });
-    })();
-  </script>
+        });
+      })();
+
+      // ── MOBILE HAMBURGER MENU ──
+      (function () {
+        const btn = document.getElementById("mobileMenuBtn");
+        const menu = document.getElementById("mobileMenu");
+        if (!btn || !menu) return;
+        btn.addEventListener("click", function () {
+          btn.classList.toggle("open");
+          menu.classList.toggle("open");
+          document.body.style.overflow = menu.classList.contains("open")
+            ? "hidden"
+            : "";
+        });
+        menu.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            btn.classList.remove("open");
+            menu.classList.remove("open");
+            document.body.style.overflow = "";
+          });
+        });
+      })();
+
+      // ── BACKGROUND PATHS: inject animated SVG paths into CTA section ──
+      (function () {
+        const svg = document.getElementById("ctaPathsSvg");
+        if (!svg) return;
+        const NS = "http://www.w3.org/2000/svg";
+        // 36 paths flowing left→right, 36 flowing right→left
+        // ViewBox is 0 0 1440 600 — all coordinates stay within this range
+        [1, -1].forEach(function (dir) {
+          for (let i = 0; i < 36; i++) {
+            const yBase = (i / 35) * 680 - 40; // spread y from -40 to 640
+            const curve = dir * (30 + i * 2.5); // vary curvature per path
+            var d;
+            if (dir === 1) {
+              d =
+                "M-100 " +
+                (yBase - 50) +
+                " C480 " +
+                (yBase + curve) +
+                " 960 " +
+                (yBase - curve * 0.5) +
+                " 1540 " +
+                (yBase + 35);
+            } else {
+              d =
+                "M1540 " +
+                (yBase + 50) +
+                " C960 " +
+                (yBase + curve) +
+                " 480 " +
+                (yBase - curve * 0.5) +
+                " -100 " +
+                (yBase - 35);
+            }
+            const path = document.createElementNS(NS, "path");
+            path.setAttribute("d", d);
+            path.setAttribute("stroke", "white");
+            path.setAttribute("stroke-width", String(0.5 + i * 0.025));
+            path.setAttribute("fill", "none");
+            const dur = (16 + Math.random() * 12).toFixed(1) + "s";
+            const delay = (-Math.random() * 24).toFixed(1) + "s";
+            path.style.animation =
+              "pathSnake " + dur + " linear " + delay + " infinite";
+            svg.appendChild(path);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
